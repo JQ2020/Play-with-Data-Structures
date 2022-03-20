@@ -56,11 +56,11 @@ public class DynamicArray<E> {
         if (size == data.length) {
             resize(data.length * 2);
         }
-
         for (int i = size - 1; i >= index; i-- ) {
             data[i + 1] = data[i];
         }
         data[index] = e;
+        //记得维护size变量
         size ++;
     }
 
@@ -98,7 +98,7 @@ public class DynamicArray<E> {
         return false;
     }
 
-    // 查找数组中第一个元素值为e所在的索引，如果不存在元素e，则返回-1
+    //查找数组中第一个元素值为e所在的索引，如果不存在元素e，则返回-1
     public int find(E e) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(e)) {
@@ -108,6 +108,7 @@ public class DynamicArray<E> {
         return -1;
     }
 
+    //删去数组中index索引位置的元素
     public E remove(int index) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Remove failed. Require index >= 0 and index <= size.");
@@ -116,6 +117,7 @@ public class DynamicArray<E> {
         for (int i = index +1; i < size; i++) {
             data[i - 1] = data[i];
         }
+        //记得维护size变量
         size --;
         data[size] = null;
         //如果在size == data.length的时候缩容，可能在边界时反复添加、删除会造成性能影响
