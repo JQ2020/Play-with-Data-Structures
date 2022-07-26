@@ -1,6 +1,6 @@
 
 //测试动态数组类
-public class Main {
+public class ArrayTestDemo {
 
     public static void main(String[] args) {
 
