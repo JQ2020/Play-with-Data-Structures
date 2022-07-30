@@ -1,4 +1,6 @@
-package com.jq.queue;
+package com.jq.queue.demo;
+
+import com.jq.queue.ArrayQueue;
 
 public class ArrayQueueTestDemo {
     public static void main(String[] args) {

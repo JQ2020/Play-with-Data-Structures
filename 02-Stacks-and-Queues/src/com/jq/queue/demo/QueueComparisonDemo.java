@@ -1,17 +1,26 @@
+package com.jq.queue.demo;
+
+import com.jq.queue.ArrayQueue;
+import com.jq.queue.LoopQueue;
+import com.jq.queue.Queue;
+
 import java.util.Random;
 
-public class Main {
+public class QueueComparisonDemo {
 
-    // 测试使用q运行opCount个enqueueu和dequeue操作所需要的时间，单位：秒
+    // 测试使用q运行opCount个enqueue和dequeue操作所需要的时间，单位：秒
     private static double testQueue(Queue<Integer> q, int opCount){
 
         long startTime = System.nanoTime();
 
         Random random = new Random();
-        for(int i = 0 ; i < opCount ; i ++)
+        for(int i = 0 ; i < opCount ; i ++) {
+            // 每次入队随机数
             q.enqueue(random.nextInt(Integer.MAX_VALUE));
-        for(int i = 0 ; i < opCount ; i ++)
+        }
+        for(int i = 0 ; i < opCount ; i ++) {
             q.dequeue();
+        }
 
         long endTime = System.nanoTime();
 

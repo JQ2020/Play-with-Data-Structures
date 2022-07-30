@@ -1,4 +1,6 @@
-package com.jq.stack;
+package com.jq.stack.demo;
+
+import com.jq.stack.ArrayStack;
 
 public class StackTestDemo {
 
