@@ -1,10 +1,12 @@
+package com.jq;
+
 public class LinkedList<E> {
 
     private Node dummyHead; //虚拟头节点，真正的头节点是dummyHead,next ,为了让add操作统一而射之
     private int size;
 
     public LinkedList() {
-        dummyHead = null;
+        dummyHead = new Node();
         size = 0;
     }
 
@@ -54,6 +56,72 @@ public class LinkedList<E> {
      */
     public void addLast(E e) {
         add(size, e);
+    }
+
+    /**
+     * 获得链表的第index个位置的元素
+     */
+    public E get(int index) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("Get failed. Illegal index.");
+        }
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        return cur.e;
+    }
+
+    /**
+     * 获得链表的第一个元素
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
+     * 获得链表的最后一个元素
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    /**
+     * 修改链表的第index个位置的元素为e
+     */
+    public void set(int index, E e) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Set failed. Illegal index.");
+        }
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            cur = cur.next;
+        }
+        cur.e = e;
+    }
+
+    /**
+     * 查找链表是否有元素e
+     */
+    public boolean contain(E e) {
+        Node cur = dummyHead.next;
+        while(cur != null) {
+            if (cur.e.equals(e)) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer res = new StringBuffer();
+        for (Node cur = dummyHead.next; cur != null; cur = cur.next) {
+            res.append(cur + " -> ");
+        }
+        res.append("Null");
+        return res.toString();
     }
 
     /**
