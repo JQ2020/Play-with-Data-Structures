@@ -114,6 +114,44 @@ public class LinkedList<E> {
         return false;
     }
 
+    /**
+     * 从链表中删除index位置的元素
+     * @return 被删除的元素
+     */
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Remove failed. Index is Illegal.");
+        }
+
+        Node prev = this.dummyHead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+
+        Node retNode = prev.next;
+        prev.next = retNode.next;
+        retNode.next = null;
+        size --;
+        return retNode.e;
+    }
+
+    /**
+     * 从链表中删除第一个元素
+     * @return 返回删除的元素
+     */
+
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     *  从链表删除最后一个元素
+     * @return 返回被删除的元素
+     */
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
     @Override
     public String toString() {
         StringBuffer res = new StringBuffer();
