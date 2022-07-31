@@ -1,4 +1,4 @@
-package com.jq;
+package com.jq.array;
 
 /**
  * description: 一个具有基础增删改查功能并且支持泛型的动态数组

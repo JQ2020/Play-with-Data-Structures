@@ -1,4 +1,4 @@
-package com.jq;
+package com.jq.linked_list;
 
 public class LinkedList<E> {
 

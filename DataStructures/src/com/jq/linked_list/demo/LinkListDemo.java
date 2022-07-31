@@ -1,7 +1,7 @@
-package com.jq.LinkListDemo;
+package com.jq.linked_list.demo;
 
 
-import com.jq.LinkedList;
+import com.jq.linked_list.LinkedList;
 
 public class LinkListDemo {
 

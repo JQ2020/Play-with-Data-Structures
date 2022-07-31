@@ -1,3 +1,6 @@
+package com.jq.array.demo;
+
+import com.jq.array.DynamicArray;
 
 //测试动态数组类
 public class ArrayTestDemo {

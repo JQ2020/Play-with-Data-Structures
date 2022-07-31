@@ -1,18 +1,17 @@
-package com.jq.queue;
+package com.jq.stack;
 
-import com.jq.DynamicArray;
+import com.jq.array.DynamicArray;
 
-
-public class ArrayQueue<E> implements Queue<E> {
+public class ArrayStack<E> implements Stack<E> {
 
     private DynamicArray<E> array;
 
-    public ArrayQueue(int capacity) {
+    public ArrayStack(int capacity) {
         array = new DynamicArray<>(capacity);
     }
 
-    public ArrayQueue() {
-        array = new DynamicArray<>();
+    public ArrayStack() {
+        this.array = new DynamicArray<>();
     }
 
     @Override
@@ -26,32 +25,32 @@ public class ArrayQueue<E> implements Queue<E> {
     }
 
     @Override
-    public void enqueue(E e) {
+    public void push(E e) {
         array.addLast(e);
     }
 
     @Override
-    public E dequeue() {
-        return array.removeFirst();
+    public E pop() {
+        return array.removeLast();
     }
 
     @Override
-    public E getFront() {
-        return array.getFirst();
+    public E peek() {
+        return array.getLast();
     }
 
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append("Queue: ");
-        res.append("front [");
+        res.append("Stack: ");
+        res.append("[");
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
             if (i != array.getSize() - 1) {
                 res.append(", ");
             }
         }
-        res.append("] tail");
+        res.append("] top.");
         return res.toString();
     }
 }
